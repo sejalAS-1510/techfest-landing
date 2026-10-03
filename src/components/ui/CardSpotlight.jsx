@@ -39,20 +39,27 @@ export function CardSpotlight({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden border border-white/[0.08] bg-[#09090c] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 ${className}`}
+      onTouchEnd={() => setOpacity(0)}
+      className={`relative overflow-hidden border border-white/[0.08] bg-[#09090c] transition-all duration-300 md:hover:-translate-y-1 md:hover:border-white/20 ${className}`}
     >
-      {/* Dynamic Cursor Spotlight Layer */}
+      {/* Mobile Ambient Glow - Visible immediately when scrolled into view without needing touch */}
       <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-300"
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-px md:hidden bg-[radial-gradient(240px_circle_at_top_right,rgba(229,9,20,0.06),transparent_75%)]"
+      />
+
+      {/* Dynamic Cursor Spotlight Layer (Desktop Mouse Interaction) */}
+      <div
+        className="pointer-events-none absolute -inset-px transition-opacity duration-300 hidden md:block"
         style={{
           opacity,
           background: `radial-gradient(${radius}px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
         }}
       />
 
-      {/* Subtle Border Spotlight Line Highlight */}
+      {/* Subtle Border Spotlight Line Highlight (Desktop Mouse Interaction) */}
       <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-300 border border-transparent"
+        className="pointer-events-none absolute inset-0 transition-opacity duration-300 border border-transparent hidden md:block"
         style={{
           opacity,
           maskImage: `radial-gradient(${radius * 0.7}px circle at ${position.x}px ${position.y}px, black, transparent 80%)`,

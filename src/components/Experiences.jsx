@@ -19,7 +19,12 @@ export function Experiences() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#e50914] mb-3">
               02 / EXPERIENCES
             </div>
@@ -27,11 +32,17 @@ export function Experiences() {
               MORE THAN <br />
               <span className="text-neutral-400">AN EVENT.</span>
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="max-w-md text-sm text-neutral-400 font-sans leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="max-w-md text-sm text-neutral-400 font-sans leading-relaxed"
+          >
             Four dimensions of exploration designed to push the boundaries of engineering, creativity, and intellectual rigor.
-          </div>
+          </motion.div>
         </div>
 
         {/* 4 Spotlight Cards with Asymmetric Accent & Micro-interactions */}
@@ -42,10 +53,10 @@ export function Experiences() {
             return (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true, amount: 0.15, margin: '0px 0px -40px 0px' }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
               >
                 <CardSpotlight
                   className="h-full p-8 md:p-9 flex flex-col justify-between group min-h-[350px]"
@@ -59,9 +70,9 @@ export function Experiences() {
                         <span className="font-mono text-xs font-bold tracking-[0.25em] text-[#e50914]">
                           {exp.id}
                         </span>
-                        <span className="h-1 w-1 rounded-full bg-neutral-700 group-hover:bg-[#e50914] transition-colors" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#e50914] md:bg-neutral-700 md:group-hover:bg-[#e50914] transition-colors" />
                       </div>
-                      <div className="h-9 w-9 flex items-center justify-center border border-white/10 text-neutral-400 group-hover:text-white group-hover:border-[#e50914] group-hover:bg-[#e50914]/10 transition-all duration-300">
+                      <div className="h-9 w-9 flex items-center justify-center border border-white/10 text-neutral-300 md:text-neutral-400 md:group-hover:text-white md:group-hover:border-[#e50914] md:group-hover:bg-[#e50914]/10 transition-all duration-300">
                         <Icon className="w-4 h-4" />
                       </div>
                     </div>
@@ -71,24 +82,24 @@ export function Experiences() {
                       <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
                         {exp.tagline}
                       </div>
-                      <h3 className="text-2xl font-black font-['Space_Grotesk'] text-white uppercase tracking-tight group-hover:text-white transition-colors">
+                      <h3 className="text-2xl font-black font-['Space_Grotesk'] text-white uppercase tracking-tight md:group-hover:text-white transition-colors">
                         {exp.title}
                       </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-neutral-400 leading-relaxed font-sans group-hover:text-neutral-300 transition-colors">
+                    <p className="text-sm text-neutral-400 leading-relaxed font-sans md:group-hover:text-neutral-300 transition-colors">
                       {exp.description}
                     </p>
                   </div>
 
                   {/* Card Bottom Meta with Secondary Hover Reveal */}
                   <div className="pt-6 mt-8 border-t border-white/[0.06] flex items-center justify-between">
-                    <span className="text-[10px] font-mono tracking-wider uppercase text-neutral-400 group-hover:text-[#e50914] transition-colors">
+                    <span className="text-[10px] font-mono tracking-wider uppercase text-neutral-300 md:text-neutral-400 md:group-hover:text-[#e50914] transition-colors">
                       {exp.metrics}
                     </span>
-                    <div className="flex items-center gap-1 text-xs font-mono text-white group-hover:text-[#e50914] transition-colors">
-                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    <div className="flex items-center gap-1 text-xs font-mono text-neutral-300 md:text-white md:group-hover:text-[#e50914] transition-colors">
+                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 md:group-hover:translate-x-1 md:group-hover:-translate-y-1" />
                     </div>
                   </div>
                 </CardSpotlight>

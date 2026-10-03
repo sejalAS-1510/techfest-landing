@@ -82,11 +82,11 @@ export function Edition30() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left max-w-5xl"
         >
-          <div className="p-6 border border-white/[0.08] bg-[#08080a] space-y-2 hover:border-[#e50914]/40 hover:-translate-y-1 transition-all duration-300">
+          <div className="p-6 border border-white/[0.08] bg-[#08080a] space-y-2 md:hover:border-[#e50914]/40 md:hover:-translate-y-1 active:border-[#e50914]/40 transition-all duration-300">
             <div className="text-[11px] font-mono text-[#e50914] font-bold tracking-widest uppercase">
               1998 // GENESIS
             </div>
@@ -98,7 +98,7 @@ export function Edition30() {
             </p>
           </div>
 
-          <div className="p-6 border border-white/[0.08] bg-[#08080a] space-y-2 hover:border-[#e50914]/40 hover:-translate-y-1 transition-all duration-300">
+          <div className="p-6 border border-white/[0.08] bg-[#08080a] space-y-2 md:hover:border-[#e50914]/40 md:hover:-translate-y-1 active:border-[#e50914]/40 transition-all duration-300">
             <div className="text-[11px] font-mono text-[#e50914] font-bold tracking-widest uppercase">
               MILESTONES // GROWTH
             </div>
@@ -110,7 +110,7 @@ export function Edition30() {
             </p>
           </div>
 
-          <div className="p-6 border border-white/[0.08] bg-[#08080a] space-y-2 hover:border-[#e50914]/40 hover:-translate-y-1 transition-all duration-300">
+          <div className="p-6 border border-white/[0.08] bg-[#08080a] space-y-2 md:hover:border-[#e50914]/40 md:hover:-translate-y-1 active:border-[#e50914]/40 transition-all duration-300">
             <div className="text-[11px] font-mono text-[#e50914] font-bold tracking-widest uppercase">
               2026 // 30TH EDITION
             </div>

@@ -32,7 +32,7 @@ export function Intro() {
             <motion.h2
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, amount: 0.15, margin: '0px 0px -40px 0px' }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-white font-['Space_Grotesk'] leading-[1.02]"
             >
@@ -46,7 +46,7 @@ export function Intro() {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-10 flex items-center space-x-4"
             >
@@ -62,7 +62,7 @@ export function Intro() {
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, amount: 0.15, margin: '0px 0px -40px 0px' }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-6 text-neutral-400 font-sans text-base md:text-lg leading-relaxed"
             >

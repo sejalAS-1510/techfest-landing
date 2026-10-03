@@ -55,7 +55,12 @@ export function Countdown() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="flex items-center space-x-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#e50914] mb-3">
               <Timer className="w-3.5 h-3.5" />
               <span>07 / SYNCHRONIZATION</span>
@@ -64,15 +69,21 @@ export function Countdown() {
               THE CLOCK <br />
               <span className="text-[#e50914]">IS RUNNING.</span>
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="text-sm font-mono text-neutral-400 space-y-1">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-sm font-mono text-neutral-400 space-y-1"
+          >
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#e50914] animate-pulse" />
               <span className="text-white font-bold">16 DECEMBER 2026 // 09:00 IST</span>
             </div>
             <div>FESTIVAL COMMENCEMENT // IIT BOMBAY · MUMBAI</div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Minimal High-Impact Countdown Block */}
@@ -82,12 +93,12 @@ export function Countdown() {
               key={block.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 md:p-12 border border-white/10 bg-[#08080a] flex flex-col justify-between group hover:border-[#e50914]/50 hover:-translate-y-1 transition-all duration-300"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="p-6 sm:p-8 md:p-12 border border-white/10 bg-[#08080a] flex flex-col justify-between group md:hover:border-[#e50914]/50 md:hover:-translate-y-1 active:border-[#e50914]/50 transition-all duration-300"
             >
               <div className="my-3">
-                <span className="text-5xl sm:text-7xl md:text-8xl font-black font-['Space_Grotesk'] text-white tracking-tighter group-hover:text-[#e50914] transition-colors tabular-nums">
+                <span className="text-4xl sm:text-6xl md:text-8xl font-black font-['Space_Grotesk'] text-white tracking-tighter md:group-hover:text-[#e50914] transition-colors tabular-nums">
                   {block.value}
                 </span>
               </div>

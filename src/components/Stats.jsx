@@ -11,13 +11,13 @@ export function Stats() {
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group relative p-8 md:p-12 flex flex-col justify-between transition-colors duration-300 hover:bg-white/[0.02]"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="group relative p-8 md:p-12 flex flex-col justify-between transition-colors duration-300 md:hover:bg-white/[0.02]"
             >
               {/* Huge Number */}
               <div className="mb-4">
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter font-['Space_Grotesk'] text-white group-hover:text-[#e50914] transition-colors duration-300 block">
+                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter font-['Space_Grotesk'] text-white md:group-hover:text-[#e50914] transition-colors duration-300 block">
                   {stat.number}
                 </span>
               </div>

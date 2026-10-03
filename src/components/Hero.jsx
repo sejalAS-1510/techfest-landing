@@ -151,17 +151,17 @@ export function Hero({ onExploreClick, onRegisterClick }) {
             <div className="flex items-center gap-4">
               <button
                 onClick={onExploreClick}
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-white text-black font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[#e50914] hover:text-white hover:shadow-[0_0_25px_rgba(229,9,20,0.4)] cursor-pointer"
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-white text-black font-mono font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 md:hover:bg-[#e50914] md:hover:text-white md:hover:shadow-[0_0_25px_rgba(229,9,20,0.4)] active:bg-[#e50914] active:text-white cursor-pointer"
               >
                 <span className="flex items-center gap-2">
                   EXPLORE TECHFEST
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 md:group-hover:translate-x-1.5" />
                 </span>
               </button>
 
               <button
                 onClick={onRegisterClick}
-                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-neutral-300 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:border-white hover:text-white hover:bg-white/[0.04] cursor-pointer"
+                className="inline-flex items-center justify-center px-6 py-4 border border-white/20 text-neutral-300 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 md:hover:border-white md:hover:text-white md:hover:bg-white/[0.04] active:bg-white/[0.08] cursor-pointer"
               >
                 REGISTER
               </button>

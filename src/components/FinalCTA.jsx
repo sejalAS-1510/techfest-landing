@@ -79,13 +79,13 @@ export function FinalCTA({ onRegisterClick }) {
         >
           <button
             onClick={onRegisterClick}
-            className="group relative w-full p-6 sm:p-8 border border-white/15 hover:border-[#e50914] bg-[#09090b]/90 backdrop-blur-sm transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden text-left hover:-translate-y-1 hover:shadow-[0_10px_40px_-15px_rgba(229,9,20,0.3)]"
+            className="group relative w-full p-6 sm:p-8 border border-white/15 md:hover:border-[#e50914] bg-[#09090b]/90 backdrop-blur-sm transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden text-left md:hover:-translate-y-1 md:hover:shadow-[0_10px_40px_-15px_rgba(229,9,20,0.3)] active:scale-[0.98] active:border-[#e50914]"
           >
-            {/* Subtle hover gradient sweep */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#e50914]/15 via-[#e50914]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Subtle hover gradient sweep (Desktop) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#e50914]/15 via-[#e50914]/5 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-300" />
 
-            {/* Bottom red progress accent line that expands on hover */}
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#e50914] group-hover:w-full transition-all duration-500" />
+            {/* Bottom red progress accent line - persistent on mobile, expands on hover for desktop */}
+            <div className="absolute bottom-0 left-0 h-[2px] w-full md:w-0 md:group-hover:w-full bg-[#e50914] transition-all duration-500" />
 
             <div className="relative z-10 space-y-1.5">
               <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#e50914] block font-bold">
@@ -99,8 +99,8 @@ export function FinalCTA({ onRegisterClick }) {
               </span>
             </div>
 
-            <div className="relative z-10 ml-4 flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full border border-white/20 group-hover:border-[#e50914] group-hover:bg-[#e50914] flex items-center justify-center transition-all duration-300">
-              <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="relative z-10 ml-4 flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full border border-[#e50914]/50 bg-[#e50914]/10 md:border-white/20 md:bg-transparent md:group-hover:border-[#e50914] md:group-hover:bg-[#e50914] flex items-center justify-center transition-all duration-300">
+              <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 md:group-hover:translate-x-1" />
             </div>
           </button>
         </motion.div>

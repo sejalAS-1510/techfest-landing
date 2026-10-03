@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { motion } from 'motion/react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { WORKSHOPS_DATA } from '../data/festivalData';
 import { CardSpotlight } from './ui/CardSpotlight';
@@ -31,7 +32,12 @@ export function Workshops({ onRegisterClick }) {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header with Left/Right Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="flex items-center space-x-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#e50914] mb-3">
               <span className="w-1.5 h-1.5 bg-[#e50914]" />
               <span>04 / LEARNING TRACKS</span>
@@ -40,7 +46,7 @@ export function Workshops({ onRegisterClick }) {
               LEARN <br />
               <span className="text-neutral-400">WHAT&apos;S NEXT.</span>
             </h2>
-          </div>
+          </motion.div>
 
           {/* Desktop/Tablet Arrow Navigation (Hidden below 768px) */}
           <div className="hidden md:flex items-center gap-4">
@@ -77,8 +83,12 @@ export function Workshops({ onRegisterClick }) {
           }}
         >
           {WORKSHOPS_DATA.map((ws, idx) => (
-            <div
+            <motion.div
               key={ws.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
               className="w-[80vw] min-w-[280px] max-w-[340px] sm:w-[360px] sm:min-w-[360px] sm:max-w-none md:w-[400px] md:min-w-[400px] flex-shrink-0 snap-start"
             >
               <CardSpotlight
@@ -103,7 +113,7 @@ export function Workshops({ onRegisterClick }) {
                   </div>
 
                   {/* Workshop Title */}
-                  <h3 className="text-xl md:text-2xl font-bold font-['Space_Grotesk'] text-white tracking-tight leading-snug mb-3 group-hover:text-white">
+                  <h3 className="text-xl md:text-2xl font-bold font-['Space_Grotesk'] text-white tracking-tight leading-snug mb-3 md:group-hover:text-white">
                     {ws.title}
                   </h3>
 
@@ -134,14 +144,14 @@ export function Workshops({ onRegisterClick }) {
 
                   <button
                     onClick={onRegisterClick}
-                    className="text-xs font-mono uppercase tracking-wider text-white group-hover:text-[#e50914] flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="text-xs font-mono uppercase tracking-wider text-white md:group-hover:text-[#e50914] active:text-[#e50914] flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <span>VIEW TRACK</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#e50914] md:text-white transition-transform duration-200 md:group-hover:translate-x-1" />
                   </button>
                 </div>
               </CardSpotlight>
-            </div>
+            </motion.div>
           ))}
 
           {/* Trailing spacer to preserve right padding on mobile swipe */}
