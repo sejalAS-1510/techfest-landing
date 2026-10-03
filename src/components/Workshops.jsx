@@ -8,7 +8,7 @@ export function Workshops({ onRegisterClick }) {
 
   const scroll = (direction) => {
     if (!scrollContainerRef.current) return;
-    const scrollAmount = 380;
+    const scrollAmount = 424;
     scrollContainerRef.current.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
       behavior: 'smooth',
@@ -30,7 +30,7 @@ export function Workshops({ onRegisterClick }) {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header with Left/Right Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
           <div>
             <div className="flex items-center space-x-2 text-[11px] font-mono uppercase tracking-[0.3em] text-[#e50914] mb-3">
               <span className="w-1.5 h-1.5 bg-[#e50914]" />
@@ -42,8 +42,9 @@ export function Workshops({ onRegisterClick }) {
             </h2>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-xs font-mono tracking-widest text-neutral-400 uppercase hidden sm:inline">
+          {/* Desktop/Tablet Arrow Navigation (Hidden below 768px) */}
+          <div className="hidden md:flex items-center gap-4">
+            <span className="text-xs font-mono tracking-widest text-neutral-400 uppercase">
               SLIDE TO EXPLORE
             </span>
             <div className="flex items-center gap-2">
@@ -68,16 +69,20 @@ export function Workshops({ onRegisterClick }) {
         {/* Horizontal Scrolling Track */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-none scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scroll-pl-6 md:scroll-pl-12 scroll-pr-6 md:scroll-pr-12 touch-pan-x -mx-6 px-6 md:-mx-12 md:px-12 [&::-webkit-scrollbar]:hidden"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch',
+          }}
         >
           {WORKSHOPS_DATA.map((ws, idx) => (
             <div
               key={ws.id}
-              className="min-w-[310px] sm:min-w-[360px] md:min-w-[400px] flex-shrink-0 snap-start"
+              className="w-[80vw] min-w-[280px] max-w-[340px] sm:w-[360px] sm:min-w-[360px] sm:max-w-none md:w-[400px] md:min-w-[400px] flex-shrink-0 snap-start"
             >
               <CardSpotlight
-                className="h-full p-8 flex flex-col justify-between group min-h-[360px]"
+                className="h-full p-6 sm:p-8 flex flex-col justify-between group min-h-[360px]"
                 spotlightColor="rgba(229, 9, 20, 0.15)"
                 borderColor="rgba(229, 9, 20, 0.4)"
               >
@@ -138,6 +143,9 @@ export function Workshops({ onRegisterClick }) {
               </CardSpotlight>
             </div>
           ))}
+
+          {/* Trailing spacer to preserve right padding on mobile swipe */}
+          <div className="w-1.5 flex-shrink-0 md:hidden" aria-hidden="true" />
         </div>
       </div>
     </section>
